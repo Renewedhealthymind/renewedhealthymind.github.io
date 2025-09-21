@@ -551,3 +551,59 @@ a:focus, button:focus {
     outline: 3px solid #ffd54f;
     outline-offset: 2px;
 }
+
+/* ============================= */
+/* Mobile Responsive Corrections */
+/* ============================= */
+
+@media (max-width: 768px) {
+  /* Navigation: stack vertically */
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+    display: block;
+  }
+
+  /* Header: allow stacking */
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Services: stack text and image */
+  .service-container {
+    flex-direction: column;
+  }
+
+  .service-text {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .service-image {
+    width: 100%;
+    height: 200px;
+  }
+
+  /* Team: single column cards */
+  .team-member {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Booking form popup fits small screens */
+  .popup-content {
+    width: 90%;
+  }
+
+  .popup-content input,
+  .popup-content textarea {
+    width: 100%;
+  }
+}
