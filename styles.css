@@ -1,0 +1,553 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F0F8FF; /* Light blue background */
+    color: #2C3E50; /* Dark blue text */
+    margin: 0;
+    padding: 0;
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    background: #003d59;
+    color: #fff;
+    padding: 8px 12px;
+    z-index: 9999;
+}
+.skip-link:focus {
+    left: 12px;
+    top: 12px;
+    border-radius: 4px;
+}
+
+/* Header */
+header {
+    background-color: #3A7CA5; 
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 20px;
+}
+
+/* Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 10;
+}
+/*Home Page Styles*/
+.home-image {
+    width: 100%; /* Makes it responsive */
+    max-width: 600px; /* Prevents it from being too large */
+    height: auto;
+    display: block;
+    margin: 20px auto; /* Centers the image */
+    border-radius: 10px; /* Softens edges */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds depth */
+}
+#home {
+    position: relative;
+    background-image: url("home-image.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+}
+
+/* Dark overlay for better text visibility */
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark transparent overlay */
+}
+
+/* Home Page Text styling */
+#home h2, #home p {
+    position: relative;
+    color: white; /* White text for contrast */
+    z-index: 1; /* Ensure text appears above overlay */
+}
+
+/* Navigation Bar */
+nav {
+    flex-grow: 1;
+    text-align: right;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    text-decoration: underline;
+}
+
+/* About Page Section */
+section {
+    padding: 40px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+#about {
+    position: relative;
+    background-image: url("about-image.jpg"); /* Replace with the actual file name */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+}
+
+/* Add a dark overlay for better text visibility */
+#about::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark transparent overlay */
+    pointer-events: none;
+}
+
+/* Ensure text is readable */
+#about h2, #about p {
+    position: relative;
+    color: white; /* White for contrast */
+    z-index: 1; /* Bring text to front */
+    max-width: 800px;
+    margin: 0 auto;
+}
+/* Out Team */
+#team {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.team-member {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 200px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+.team-member:hover {
+    transform: translateY(-10px);
+}
+.member-photo {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: #eee;
+}
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.social-icons {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.team-member:hover .social-icons {
+    opacity: 1;
+}
+
+.social-icons a {
+    color: #fff;
+    background-color: #007bff;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    background-color: #0056b3;
+}
+
+.team-member h3 {
+    font-size: 1.2em;
+    margin: 10px 0 5px;
+}
+
+.team-member p {
+    color: #777;
+    font-size: 0.9em;
+}
+
+
+@media (max-width: 768px) {
+    .team-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Our Services */
+#services {
+    text-align: center;
+    padding: 20px 20px;
+    background-color: #f0f8ff; /* Light background for contrast */
+}
+
+.service-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1000px;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-text {
+    flex: 1;
+    padding: 30px;
+    text-align: left;
+}
+
+.service-image {
+    flex: 1;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+
+.service-container button {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.service-container button:hover {
+    background-color: #004080;
+}
+
+/* Alternate layout for better UX */
+.service-container:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Popup Styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    position: relative;
+}
+
+.popup-content input {
+    width: 90%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.popup-content button {
+    background-color: #008000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.popup-content button:hover {
+    background-color: #006600;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+/* Resources */
+.blog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.blog-post {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.blog-post img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #008080; /* Teal color for mental health */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.read-more:hover {
+    background: #006666;
+}
+
+#contribute {
+    text-align: center;
+    padding: 40px;
+    background-color: #f4f4f4;
+}
+
+.donation {
+    margin-bottom: 20px;
+}
+
+.donate-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #008080;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.donate-btn:hover {
+    background: #006666;
+}
+
+.merch-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.merch-item {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.merch-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.buy-now {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #008080;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.buy-now:hover {
+    background: #006666;
+}
+/* Testimonials Section */
+#testimonials {
+    text-align: center;
+    padding: 40px;
+    background-color: #f4f4f4;
+    position: relative;
+}
+
+.testimonial-slider {
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.testimonial {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+    font-size: 18px;
+    font-style: italic;
+}
+
+.testimonial h4 {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #008080;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+/* Contact Section */
+#contact {
+    text-align: center;
+    padding: 40px;
+    background-color: #e6f2ff;
+    background-image: url("reachout.jpg");
+}
+
+#contact .socials a {
+    margin: 10px;
+    color: #004080;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+#contact-form {
+    max-width: 400px;
+    margin: auto;
+}
+
+#contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact-form button {
+    background: #008080;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* Footer */
+footer {
+    background-color: #3A7CA5;
+    color: white;
+    padding: 18px 20px;
+    text-align: center;
+    font-size: 14px;
+    height: 30px;
+}
+a:focus, button:focus {
+    outline: 3px solid #ffd54f;
+    outline-offset: 2px;
+}

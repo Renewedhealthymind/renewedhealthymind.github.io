@@ -1,0 +1,9 @@
+<script>
+function openPopup() {
+    document.getElementById("bookingPopup").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("bookingPopup").style.display = "none";
+}
+</script>

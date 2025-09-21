@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Renewed Healthy Mind</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <img src="Logo.png" alt="Renewed Healthy Mind Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contribute.html">Contribute</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="services">
+        <h2>Our Services</h2>
+
+        <!-- Service 1 -->
+        <div class="service-container">
+            <div class="service-text">
+                <h3>One-on-One Counseling</h3>
+                <p>Personalized sessions with professional counselors for tailored support.</p>
+                <button onclick="openPopup()">Book Now</button>
+        </div>
+        <div class="service-image" style="background-image: url('one-on-one-counseling.jpg');"></div>
+        </div>
+        
+
+        <!-- Service 2 -->
+        <div class="service-container">
+        <div class="service-text">
+            <h3>Group Therapy</h3>
+            <p>Experience the power of shared healing in our guided group therapy sessions.</p>
+            <button onclick="openPopup()">Book Now</button>
+        </div>
+        <div class="service-image" style="background-image: url('group-therapy.jpg');"></div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-container">
+        <div class="service-text">
+            <h3>Online Counseling</h3>
+            <p>Get expert mental health support from the comfort of your home.</p>
+            <button onclick="openPopup()">Book Now</button>
+        </div>
+        <div class="service-image" style="background-image: url('online-counseling.jpg');"></div>
+        </div>
+    </section>
+
+<!-- Popup Booking Form -->
+<div id="bookingPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2>Book an Appointment</h2>
+        <form id="bookingForm" action="https://script.google.com/macros/s/AKfycbymGBtoWHog_uLH3aM2qc81_T9exEU4apY0Kd0kG5LujXxIAr_FeXgDcsb46-wQ_Ulk/exec" method="POST">
+        <!-- <form id="bookingForm" action="https://formspree.io/f/mblzrlwd" method="POST"> -->
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="date">Preferred Date:</label>
+          <input type="date" id="date" name="date" required>
+
+          <label for="message">Message (Optional):</label>
+          <textarea id="message" name="message" rows="4" placeholder="Write your message here..."></textarea>
+
+          <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+</div>
+
+<!-- JavaScript for Popup Functionality -->
+<script>
+function openPopup() {
+    document.getElementById("bookingPopup").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("bookingPopup").style.display = "none";
+}
+
+// Close popup when clicking outside it
+window.onclick = function(event) {
+    var popup = document.getElementById("bookingPopup");
+    if (event.target == popup) {
+        popup.style.display = "none";
+    }
+}
+
+// Handle form submission with Formspree
+document.getElementById("bookingForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const form = event.target;
+    const data = new FormData(form);
+
+    const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+        alert("✅ Appointment booked successfully! We’ll reach out to you soon.");
+        form.reset();
+        closePopup();
+    } else {
+        alert("❌ Oops! Something went wrong. Please try again.");
+    }
+});
+</script>
+
+<footer>
+    <p>&copy; 2025 Renewed Healthy Mind. All Rights Reserved.</p>
+</footer>
+</body>
+</html>
